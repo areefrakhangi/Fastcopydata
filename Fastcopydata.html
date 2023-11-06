@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click to Copy Table</title>
+</head>
+<body>
+    <table id="copyTable">
+ "<tr>
+            <td>Name</td>
+            <td>Areef Ismail Rakhangi</td>
+        </tr>"
+"<tr>
+            <td>First name</td>
+            <td>Areef</td>
+        </tr>"
+"<tr>
+            <td>Last Name</td>
+            <td>Rakhangi</td>
+        </tr>"
+"<tr>
+            <td>Address</td>
+            <td>Westacre Gardens, Stechford, SW1A 1AA ,London, UK</td>
+        </tr>"
+"<tr>
+            <td>County</td>
+            <td>London</td>
+        </tr>"
+"<tr>
+            <td>Telephone number</td>
+            <td>0777777777</td>
+        </tr>"
+"<tr>
+            <td>Telephonewith+</td>
+            <td>+447777777</td>
+        </tr>"
+"<tr>
+            <td>emailaddress</td>
+            <td>areefrakhangi@gmail.com</td>
+        </tr>"
+"<tr>
+            <td>Linkedin</td>
+            <td>https://www.linkedin.com/in/areefrakhangi/</td>
+        </tr>"
+"<tr>
+            <td>NiA number</td>
+            <td>TL000000</td>
+        </tr>"
+"<tr>
+            <td>Job </td>
+            <td>I.T.Manager</td>
+        </tr>"
+"<tr>
+            <td>Nationality</td>
+            <td>Indian</td>
+        </tr>"
+
+
+
+        <!-- Add more rows and cells as needed -->
+    </table>
+
+    <script>
+        const table = document.getElementById("copyTable");
+        
+        table.addEventListener("click", function(event) {
+            const target = event.target;
+            if (target.tagName === "TD") {
+                const cellContent = target.innerText;
+                
+                // Create a temporary input element
+                const input = document.createElement("input");
+                input.value = cellContent;
+                document.body.appendChild(input);
+                
+                // Select the text in the input element and copy it to the clipboard
+                input.select();
+                document.execCommand("copy");
+                
+                // Remove the temporary input element
+                document.body.removeChild(input);
+
+                // Provide a visual indication that the text has been copied (optional)
+                target.innerText = "Copied to Clipboard!";
+                
+                // Reset the text after a short delay (optional)
+                setTimeout(() => {
+                    target.innerText = cellContent;
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
